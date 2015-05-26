@@ -14,11 +14,17 @@ class Empleados extends CI_Controller {
     public function index()
     {
         $this->grocery_crud->set_table('empleados');
+        $this->grocery_crud->set_subject('Empleado');
+        $this->grocery_crud->required_fields('id_empleados','nombre1','apellido1','id_departamento');
+        $this->grocery_crud->set_relation('id_departamento','departamentos','nombre');
+        $this->grocery_crud->display_as('id_empleados','Cédula');
+        $this->grocery_crud->display_as('nombre1','Primer nombre');
+        $this->grocery_crud->display_as('nombre2','Segundo nombre');
+        $this->grocery_crud->display_as('apellido1','Primer apellido');
+        $this->grocery_crud->display_as('apellido2','Segundo apellido');
         $output=$this->grocery_crud->render();
         $output->titulo='Empleados';
         $output->subtitulo='Gestione sus empleados';
-
-        $datosHeader['titulo']='Empleados';
         $this->load->view('/templates/adminlte/header', $output);
         $this->load->view('/templates/adminlte/menu');
         $this->load->view('/templates/adminlte/contenido',$output);

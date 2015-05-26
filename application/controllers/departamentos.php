@@ -15,11 +15,10 @@ class Departamentos extends CI_Controller {
     public function index()
     {
         $this->grocery_crud->set_table('departamentos');
+        $this->grocery_crud->set_subject('Departamento');
         $output=$this->grocery_crud->render();
         $output->titulo='Departamentos';
         $output->subtitulo='Gestione sus departamentos';
-
-        $datosHeader['titulo']='Departamentos';
         $this->load->view('/templates/adminlte/header', $output);
         $this->load->view('/templates/adminlte/menu');
         $this->load->view('/templates/adminlte/contenido',$output);
