@@ -16,6 +16,7 @@ class Departamentos extends CI_Controller {
     {
         $this->grocery_crud->set_table('departamentos');
         $this->grocery_crud->set_subject('Departamento');
+        $this->grocery_crud->unset_delete();
         $output=$this->grocery_crud->render();
         $output->titulo='Departamentos';
         $output->subtitulo='Gestione sus departamentos';
